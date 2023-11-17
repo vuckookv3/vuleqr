@@ -1,5 +1,5 @@
-import QRScanner from './QRScanner';
+import VuleQR from './QRScanner';
 
-export { QRScanner };
+export { VuleQR };
 
 export type { VuleQRProps, VuleQRResult } from '../types';

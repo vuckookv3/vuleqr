@@ -41,7 +41,7 @@ var Ae;
 function vr() {
   return Ae || (Ae = 1, process.env.NODE_ENV !== "production" && function() {
     var _ = Me, l = Symbol.for("react.element"), w = Symbol.for("react.portal"), f = Symbol.for("react.fragment"), h = Symbol.for("react.strict_mode"), u = Symbol.for("react.profiler"), T = Symbol.for("react.provider"), y = Symbol.for("react.context"), c = Symbol.for("react.forward_ref"), m = Symbol.for("react.suspense"), d = Symbol.for("react.suspense_list"), R = Symbol.for("react.memo"), C = Symbol.for("react.lazy"), x = Symbol.for("react.offscreen"), D = Symbol.iterator, H = "@@iterator";
-    function K(e) {
+    function Q(e) {
       if (e === null || typeof e != "object")
         return null;
       var r = D && e[D] || e[H];
@@ -65,10 +65,10 @@ function vr() {
         s.unshift("Warning: " + r), Function.prototype.apply.call(console[e], console, s);
       }
     }
-    var O = !1, U = !1, Q = !1, X = !1, We = !1, le;
+    var O = !1, U = !1, K = !1, X = !1, We = !1, le;
     le = Symbol.for("react.module.reference");
     function $e(e) {
-      return !!(typeof e == "string" || typeof e == "function" || e === f || e === u || We || e === h || e === m || e === d || X || e === x || O || U || Q || typeof e == "object" && e !== null && (e.$$typeof === C || e.$$typeof === R || e.$$typeof === T || e.$$typeof === y || e.$$typeof === c || // This needs to include all possible module reference object
+      return !!(typeof e == "string" || typeof e == "function" || e === f || e === u || We || e === h || e === m || e === d || X || e === x || O || U || K || typeof e == "object" && e !== null && (e.$$typeof === C || e.$$typeof === R || e.$$typeof === T || e.$$typeof === y || e.$$typeof === c || // This needs to include all possible module reference object
       // types supported by any Flight configuration anywhere since
       // we don't know which Flight build this will end up being used
       // with.
@@ -375,7 +375,7 @@ function vr() {
       __source: !0
     }, Te, Se, ae;
     ae = {};
-    function Ke(e) {
+    function Qe(e) {
       if (Z.call(e, "ref")) {
         var r = Object.getOwnPropertyDescriptor(e, "ref").get;
         if (r && r.isReactWarning)
@@ -383,7 +383,7 @@ function vr() {
       }
       return e.ref !== void 0;
     }
-    function Qe(e) {
+    function Ke(e) {
       if (Z.call(e, "key")) {
         var r = Object.getOwnPropertyDescriptor(e, "key").get;
         if (r && r.isReactWarning)
@@ -451,7 +451,7 @@ function vr() {
     function nr(e, r, t, n, o) {
       {
         var s, i = {}, a = null, E = null;
-        t !== void 0 && (Ce(t), a = "" + t), Qe(r) && (Ce(r.key), a = "" + r.key), Ke(r) && (E = r.ref, Xe(r, o));
+        t !== void 0 && (Ce(t), a = "" + t), Ke(r) && (Ce(r.key), a = "" + r.key), Qe(r) && (E = r.ref, Xe(r, o));
         for (s in r)
           Z.call(r, s) && !He.hasOwnProperty(s) && (i[s] = r[s]);
         if (e && e.defaultProps) {
@@ -540,7 +540,7 @@ Check the top-level render call using <` + t + ">.");
         else if (ue(e))
           e._store && (e._store.validated = !0);
         else if (e) {
-          var o = K(e);
+          var o = Q(e);
           if (typeof o == "function" && o !== e.entries)
             for (var s = o.call(e), i; !(i = s.next()).done; )
               ue(i.value) && je(i.value, r);
@@ -695,7 +695,7 @@ function _r({
   beepOn: w = !0,
   scanRate: f = 250
 }) {
-  const h = se(null), u = se(null), T = se(0), [y, c] = hr(K), m = {
+  const h = se(null), u = se(null), T = se(0), [y, c] = hr(Q), m = {
     width: Ie.width,
     height: Ie.height
   }, [d, R] = z(null);
@@ -744,11 +744,11 @@ function _r({
         N.width,
         N.height
       ) : O = A.getImageData(0, 0, m.width, m.height);
-      const U = { width: O.width, height: O.height }, Q = O.data.buffer.slice(0), X = O.data.buffer.slice(0);
-      y == null || y.postMessage(U), c == null || c.postMessage(U), y == null || y.postMessage(O, [Q]), c == null || c.postMessage(O, [X]);
+      const U = { width: O.width, height: O.height }, K = O.data.buffer.slice(0), X = O.data.buffer.slice(0);
+      y == null || y.postMessage(U), c == null || c.postMessage(U), y == null || y.postMessage(O, [K]), c == null || c.postMessage(O, [X]);
     }
   }
-  function K(b) {
+  function Q(b) {
     u.current && (u.current.pause(), d || R(b));
   }
   return C ? /* @__PURE__ */ J.jsx("div", { className: "vuleqr__wrapper", children: /* @__PURE__ */ J.jsxs("div", { className: "vuleqr__container", children: [
@@ -783,5 +783,5 @@ function br(_) {
   l.fill(w);
 }
 export {
-  _r as QRScanner
+  _r as VuleQR
 };
