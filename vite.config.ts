@@ -17,12 +17,12 @@ export default defineConfig((configEnv) => ({
       linters: [new EsLinter({ configEnv })],
     }),
     dts({
-      include: ['src/component/'],
+      include: ['lib/index.ts'],
     }),
   ],
   build: {
     lib: {
-      entry: resolve('src', 'components/index.ts'),
+      entry: resolve('lib', 'index.ts'),
       name: 'VuleQR',
       formats: ['es', 'umd'],
       fileName: (format) => `vuleqr.${format}.js`,

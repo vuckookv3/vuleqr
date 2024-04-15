@@ -1,7 +1,7 @@
 {
   "name": "vuleqr",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "keywords": [],
   "author": "Marko Vucetic <marko@wolfit.rs>",
@@ -42,7 +42,7 @@
     "tailwindcss": "^3.2.7",
     "typescript": "^4.9.3",
     "vite": "^4.1.0",
-    "vite-plugin-dts": "^3.6.3",
+    "vite-plugin-dts": "^3.8.2",
     "vite-plugin-linter": "^2.0.7",
     "vite-tsconfig-paths": "^4.2.1"
   },

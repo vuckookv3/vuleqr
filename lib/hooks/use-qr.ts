@@ -1,6 +1,6 @@
+import { VuleQRResult } from 'lib/types';
 import { useEffect, useState } from 'react';
 
-import { VuleQRResult } from '../types';
 
 type CallbackType = (result: VuleQRResult) => void;
 

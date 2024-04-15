@@ -1,10 +1,9 @@
 import './QRScanner.css';
 
+import { VuleQRProps, VuleQRResult } from 'lib/types';
 import { useEffect, useRef, useState } from 'react';
-import { VuleQRProps, VuleQRResult } from 'src/types';
 
 import { beep } from '../helpers';
-// import { useCardRatio } from '../hooks/use-card-ratio';
 import { useQr } from '../hooks/use-qr';
 import { useUserMedia } from '../hooks/use-user-media';
 
@@ -28,7 +27,7 @@ const VIDEO_DIMENSIONS = {
   height: 430,
 };
 
-export default function QRScanner({
+export default function VuleQR({
   onCapture,
   crosshair = true,
   beepOn = true,
@@ -53,6 +52,7 @@ export default function QRScanner({
     if (result) {
       if (beepOn) beep();
       onCapture(result);
+      videoRef.current = null;
     }
   }, [result]);
 
@@ -136,7 +136,9 @@ export default function QRScanner({
   function handleCapture(code: VuleQRResult) {
     if (!videoRef.current) return;
     videoRef.current.pause();
-    if (!result) setResult(code);
+    if (!result) {
+      setResult(code);
+    }
   }
 
   if (!mediaStream) {

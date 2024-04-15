@@ -27,7 +27,7 @@ function dr() {
   }
   return W.Fragment = w, W.jsx = T, W.jsxs = T, W;
 }
-var $ = {};
+var N = {};
 /**
  * @license React
  * react-jsx-runtime.development.js
@@ -41,7 +41,7 @@ var Ae;
 function vr() {
   return Ae || (Ae = 1, process.env.NODE_ENV !== "production" && function() {
     var _ = Me, l = Symbol.for("react.element"), w = Symbol.for("react.portal"), f = Symbol.for("react.fragment"), h = Symbol.for("react.strict_mode"), u = Symbol.for("react.profiler"), T = Symbol.for("react.provider"), y = Symbol.for("react.context"), c = Symbol.for("react.forward_ref"), m = Symbol.for("react.suspense"), d = Symbol.for("react.suspense_list"), R = Symbol.for("react.memo"), C = Symbol.for("react.lazy"), x = Symbol.for("react.offscreen"), D = Symbol.iterator, H = "@@iterator";
-    function Q(e) {
+    function K(e) {
       if (e === null || typeof e != "object")
         return null;
       var r = D && e[D] || e[H];
@@ -65,16 +65,16 @@ function vr() {
         s.unshift("Warning: " + r), Function.prototype.apply.call(console[e], console, s);
       }
     }
-    var O = !1, U = !1, K = !1, X = !1, We = !1, le;
+    var O = !1, U = !1, Q = !1, X = !1, We = !1, le;
     le = Symbol.for("react.module.reference");
-    function $e(e) {
-      return !!(typeof e == "string" || typeof e == "function" || e === f || e === u || We || e === h || e === m || e === d || X || e === x || O || U || K || typeof e == "object" && e !== null && (e.$$typeof === C || e.$$typeof === R || e.$$typeof === T || e.$$typeof === y || e.$$typeof === c || // This needs to include all possible module reference object
+    function Ne(e) {
+      return !!(typeof e == "string" || typeof e == "function" || e === f || e === u || We || e === h || e === m || e === d || X || e === x || O || U || Q || typeof e == "object" && e !== null && (e.$$typeof === C || e.$$typeof === R || e.$$typeof === T || e.$$typeof === y || e.$$typeof === c || // This needs to include all possible module reference object
       // types supported by any Flight configuration anywhere since
       // we don't know which Flight build this will end up being used
       // with.
       e.$$typeof === le || e.getModuleId !== void 0));
     }
-    function Ne(e, r, t) {
+    function $e(e, r, t) {
       var n = e.displayName;
       if (n)
         return n;
@@ -114,7 +114,7 @@ function vr() {
             var t = e;
             return fe(t._context) + ".Provider";
           case c:
-            return Ne(e, e.render, "ForwardRef");
+            return $e(e, e.render, "ForwardRef");
           case R:
             var n = e.displayName || null;
             return n !== null ? n : P(e.type) || "Memo";
@@ -375,7 +375,7 @@ function vr() {
       __source: !0
     }, Te, Se, ae;
     ae = {};
-    function Qe(e) {
+    function Ke(e) {
       if (Z.call(e, "ref")) {
         var r = Object.getOwnPropertyDescriptor(e, "ref").get;
         if (r && r.isReactWarning)
@@ -383,7 +383,7 @@ function vr() {
       }
       return e.ref !== void 0;
     }
-    function Ke(e) {
+    function Qe(e) {
       if (Z.call(e, "key")) {
         var r = Object.getOwnPropertyDescriptor(e, "key").get;
         if (r && r.isReactWarning)
@@ -451,7 +451,7 @@ function vr() {
     function nr(e, r, t, n, o) {
       {
         var s, i = {}, a = null, E = null;
-        t !== void 0 && (Ce(t), a = "" + t), Ke(r) && (Ce(r.key), a = "" + r.key), Qe(r) && (E = r.ref, Xe(r, o));
+        t !== void 0 && (Ce(t), a = "" + t), Qe(r) && (Ce(r.key), a = "" + r.key), Ke(r) && (E = r.ref, Xe(r, o));
         for (s in r)
           Z.call(r, s) && !He.hasOwnProperty(s) && (i[s] = r[s]);
         if (e && e.defaultProps) {
@@ -540,7 +540,7 @@ Check the top-level render call using <` + t + ">.");
         else if (ue(e))
           e._store && (e._store.validated = !0);
         else if (e) {
-          var o = Q(e);
+          var o = K(e);
           if (typeof o == "function" && o !== e.entries)
             for (var s = o.call(e), i; !(i = s.next()).done; )
               ue(i.value) && je(i.value, r);
@@ -586,7 +586,7 @@ Check the top-level render call using <` + t + ">.");
     }
     function De(e, r, t, n, o, s) {
       {
-        var i = $e(e);
+        var i = Ne(e);
         if (!i) {
           var a = "";
           (e === void 0 || typeof e == "object" && e !== null && Object.keys(e).length === 0) && (a += " You likely forgot to export your component from the file it's defined in, or you might have mixed up default and named imports.");
@@ -621,8 +621,8 @@ Check the top-level render call using <` + t + ">.");
       return De(e, r, t, !1);
     }
     var lr = cr, fr = sr;
-    $.Fragment = f, $.jsx = lr, $.jsxs = fr;
-  }()), $;
+    N.Fragment = f, N.jsx = lr, N.jsxs = fr;
+  }()), N;
 }
 process.env.NODE_ENV === "production" ? ce.exports = dr() : ce.exports = vr();
 var J = ce.exports;
@@ -676,7 +676,7 @@ function gr(_) {
 function mr() {
   return !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia ? new Error("Browser API navigator.mediaDevices.getUserMedia not available") : null;
 }
-const N = {
+const $ = {
   svg: "M288,298 L288,326 C288,335.388841 280.388841,343 271,343 L243.328859,343 L243.328,319 L249,319 C257.284271,319 264,312.284271 264,304 L264,298 L288,298 Z M56,298 L56,304 C56,312.284271 62.7157288,319 71,319 L76.671,319 L76.6711409,343 L49,343 C39.6111593,343 32,335.388841 32,326 L32,298 L56,298 Z M271,87 C280.388841,87 288,94.6111593 288,104 L288,133 L264,133 L264,126 C264,117.715729 257.284271,111 249,111 L243.328,111 L243.328859,87 L271,87 Z M32,104 C32,94.6111593 39.6111593,87 49,87 L76.6711409,87 L76.671,111 L71,111 C62.7157288,111 56,117.715729 56,126 L56,133 L32,133 L32,104 Z",
   width: 256,
   height: 256,
@@ -695,12 +695,12 @@ function _r({
   beepOn: w = !0,
   scanRate: f = 250
 }) {
-  const h = se(null), u = se(null), T = se(0), [y, c] = hr(Q), m = {
+  const h = se(null), u = se(null), T = se(0), [y, c] = hr(K), m = {
     width: Ie.width,
     height: Ie.height
   }, [d, R] = z(null);
   Y(() => {
-    d && (w && pr(), _(d));
+    d && (w && pr(), _(d), u.current = null);
   }, [d]);
   const C = gr(yr);
   C && u.current && !u.current.srcObject && (u.current.srcObject = C);
@@ -739,16 +739,16 @@ function _r({
         return;
       let O;
       l ? O = A.getImageData(
-        N.x0,
-        N.y0,
-        N.width,
-        N.height
+        $.x0,
+        $.y0,
+        $.width,
+        $.height
       ) : O = A.getImageData(0, 0, m.width, m.height);
-      const U = { width: O.width, height: O.height }, K = O.data.buffer.slice(0), X = O.data.buffer.slice(0);
-      y == null || y.postMessage(U), c == null || c.postMessage(U), y == null || y.postMessage(O, [K]), c == null || c.postMessage(O, [X]);
+      const U = { width: O.width, height: O.height }, Q = O.data.buffer.slice(0), X = O.data.buffer.slice(0);
+      y == null || y.postMessage(U), c == null || c.postMessage(U), y == null || y.postMessage(O, [Q]), c == null || c.postMessage(O, [X]);
     }
   }
-  function Q(b) {
+  function K(b) {
     u.current && (u.current.pause(), d || R(b));
   }
   return C ? /* @__PURE__ */ J.jsx("div", { className: "vuleqr__wrapper", children: /* @__PURE__ */ J.jsxs("div", { className: "vuleqr__container", children: [
@@ -779,9 +779,9 @@ function br(_) {
   if (!l)
     return;
   l.fillStyle = "rgba(255,255,255,0.4)";
-  const w = new Path2D(N.svg);
+  const w = new Path2D($.svg);
   l.fill(w);
 }
 export {
-  _r as VuleQR
+  _r as default
 };
