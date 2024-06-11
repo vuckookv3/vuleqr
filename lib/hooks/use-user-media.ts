@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 
 export function useUserMedia(requestedMedia: MediaStreamConstraints) {
   const [mediaStream, setMediaStream] = useState<MediaStream | null>(null);
+  const [error, setError] = useState<Error | null>(null);
+  // const mediaStreamRef = useRef<MediaStream | null>(null);
 
   useEffect(() => {
     const userMediaError = checkUserMediaError();
@@ -11,26 +13,27 @@ export function useUserMedia(requestedMedia: MediaStreamConstraints) {
 
     async function setupCamera() {
       try {
-        const mediaStream = await navigator.mediaDevices.getUserMedia(requestedMedia);
-        setMediaStream(mediaStream);
+        const stream = await navigator.mediaDevices.getUserMedia(requestedMedia);
+        setMediaStream(stream);
       } catch (err) {
-        return null;
+        setError(new Error('Error accessing media devices.'));
+        setMediaStream(null);
       }
     }
     setupCamera();
-  }, [requestedMedia]);
 
-  useEffect(() => {
     return () => {
-      if (!mediaStream) {
-        return;
+      if (mediaStream) {
+        mediaStream.getTracks().forEach((track) => {
+          track.stop();
+        });
+        setMediaStream(null);
       }
-      mediaStream.getTracks().forEach((track) => track.stop());
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return mediaStream;
+
+  return [mediaStream, error] as const;
 }
 
 function checkUserMediaError() {

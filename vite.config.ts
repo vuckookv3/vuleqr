@@ -18,6 +18,7 @@ export default defineConfig((configEnv) => ({
     }),
     dts({
       include: ['lib/index.ts'],
+      insertTypesEntry: true,
     }),
   ],
   build: {

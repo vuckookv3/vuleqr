@@ -1,11 +1,11 @@
 import './QRScanner.css';
 
-import { VuleQRProps, VuleQRResult } from 'lib/types';
 import { useEffect, useRef, useState } from 'react';
 
 import { beep } from '../helpers';
 import { useQr } from '../hooks/use-qr';
 import { useUserMedia } from '../hooks/use-user-media';
+import { VuleQRProps, VuleQRResult } from '../types';
 
 // Crosshair config
 const xHairSquare = {
@@ -20,7 +20,7 @@ const xHairSquare = {
 const CAPTURE_OPTIONS = {
   audio: false,
   video: { facingMode: 'environment' },
-};
+} as const;
 
 const VIDEO_DIMENSIONS = {
   width: 320,
@@ -32,6 +32,8 @@ export default function VuleQR({
   crosshair = true,
   beepOn = true,
   scanRate = 250,
+  onError,
+  isLoading,
 }: VuleQRProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -56,12 +58,32 @@ export default function VuleQR({
     }
   }, [result]);
 
-  const mediaStream = useUserMedia(CAPTURE_OPTIONS);
+  const [mediaStream, errorMediaStream] = useUserMedia(CAPTURE_OPTIONS);
 
   //   const [aspectRatio, calculateRatio] = useCardRatio();
-
   if (mediaStream && videoRef.current && !videoRef.current.srcObject) {
     videoRef.current.srcObject = mediaStream;
+  }
+
+  useEffect(() => {
+    if (mediaStream && videoRef.current) {
+      videoRef.current.onloadedmetadata = () => {
+        if (isLoading) isLoading(false);
+      };
+    }
+  }, [mediaStream]);
+
+  useEffect(() => {
+    return () => {
+      if (mediaStream) {
+        mediaStream.getTracks().forEach((track) => track.stop());
+      }
+    };
+  }, [mediaStream]);
+
+  if (errorMediaStream) {
+    onError?.(errorMediaStream);
+    return null;
   }
 
   //   function handleResize(contentRect) {

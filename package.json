@@ -1,7 +1,7 @@
 {
   "name": "vuleqr",
   "private": true,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "keywords": [],
   "author": "Marko Vucetic <marko@wolfit.rs>",
@@ -51,8 +51,14 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/vuleqr.es.js",
-      "require": "./dist/vuleqr.umd.js"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/vuleqr.es.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/vuleqr.umd.js"
+      }
     },
     "./dist/style.css": "./dist/style.css"
   },
